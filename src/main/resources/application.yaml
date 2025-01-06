@@ -16,5 +16,5 @@ spring:
       max-request-size: 2MB
 
 tokens:
-  open-ai: Bearer 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
-  plant-net: 2b10haQYlHDvRgsaSWOXNMWr1e
+  open-ai: test
+  plant-net: test
