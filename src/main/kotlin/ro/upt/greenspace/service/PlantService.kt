@@ -9,6 +9,7 @@ import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.util.UriComponentsBuilder
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Value
 import ro.upt.greenspace.dto.PlantDetailsDto
 import ro.upt.greenspace.entity.Plant
 import ro.upt.greenspace.repository.PlantRepository
@@ -20,9 +21,12 @@ class PlantService(private val webClient: WebClient.Builder) {
     private lateinit var plantRepository: PlantRepository
 
     private val plantNetApiUrl = "https://my-api.plantnet.org/v2/identify/all"
-    private val plantNetApiKey = "2b10haQYlHDvRgsaSWOXNMWr1e"
+    @Value("\${tokens.plant-net}")
+    private val plantNetApiKey = ""
+
     private val chatGptApiUrl = "https://api.openai.com/v1/chat/completions"
-    private val chatGptApiKey = "Bearer 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"
+    @Value("\${tokens.open-ai}")
+    private val chatGptApiKey = ""
 
     fun identifyPlant(image: ByteArray): String {
         val uri = UriComponentsBuilder.fromHttpUrl(plantNetApiUrl)
