@@ -11,13 +11,15 @@ import lombok.Setter
 @NoArgsConstructor
 @Getter
 @Setter
-data class Room (
+data class Home (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
 
     val name: String,
 
-    @OneToMany(mappedBy = "room", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    val city: String,
+
+    @OneToMany(mappedBy = "home", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     var plants: MutableList<Plant> = mutableListOf()
 )

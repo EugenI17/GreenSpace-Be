@@ -12,5 +12,11 @@ import lombok.Setter
 class PlantDto (
     val id: Long? = null,
     val name: String,
-    val room: Long? = null,
+    val home: Long? = null,
+    val type: String?,
+    val family: String?,
+    val water: String?,
+    val light: String?,
+    val image: ByteArray?,
+    val suggestion: String?
 )

@@ -1,6 +1,6 @@
 package ro.upt.greenspace.repository
 
 import org.springframework.data.jpa.repository.JpaRepository
-import ro.upt.greenspace.entity.Room
+import ro.upt.greenspace.entity.Home
 
-interface RoomRepository : JpaRepository<Room, Long>
+interface HomeRepository : JpaRepository<Home, Long>

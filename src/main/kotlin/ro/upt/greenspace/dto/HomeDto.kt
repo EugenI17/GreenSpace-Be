@@ -9,8 +9,9 @@ import lombok.Setter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-class RoomDto (
+class HomeDto (
     val id: Long? = null,
     val name: String,
-    val plants: List<Long>,
+    val city: String,
+    val plants: List<Long>?,
 )
