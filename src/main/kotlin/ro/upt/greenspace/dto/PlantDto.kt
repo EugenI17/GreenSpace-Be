@@ -18,5 +18,5 @@ class PlantDto (
     val water: String?,
     val light: String?,
     val image: ByteArray?,
-    val suggestion: String?
+    val suggestion: String? = "No suggestion"
 )

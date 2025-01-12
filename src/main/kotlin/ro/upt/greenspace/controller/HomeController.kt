@@ -2,6 +2,7 @@ package ro.upt.greenspace.controller
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
+import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.*
 import ro.upt.greenspace.dto.HomeDto
 import ro.upt.greenspace.mapper.HomeMapper
@@ -18,12 +19,15 @@ class HomeController {
     private lateinit var homeRepository: HomeRepository
 
     @GetMapping
-    fun getAll(): ResponseEntity<Any> =
-        try {
-            ResponseEntity.ok(homeRepository.findAll())
+    fun getAll(): ResponseEntity<Any> {
+        return try {
+            val homes = homeRepository.findAll()
+            ResponseEntity.ok(homes)
+
         } catch (e: Exception) {
             ResponseEntity.badRequest().body(e.message)
         }
+    }
 
     @GetMapping("/{homeId}")
     fun getOne(@PathVariable homeId: Long): ResponseEntity<Any> =

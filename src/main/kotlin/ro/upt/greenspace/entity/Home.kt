@@ -20,6 +20,6 @@ data class Home (
 
     val city: String,
 
-    @OneToMany(mappedBy = "home", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "home", cascade = [CascadeType.ALL], fetch = FetchType.EAGER)
     var plants: MutableList<Plant> = mutableListOf()
 )
